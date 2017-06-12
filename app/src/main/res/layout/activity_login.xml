@@ -22,10 +22,10 @@
         android:textStyle="bold" />
 
     <EditText
-        android:id="@+id/txtEmail"
+        android:id="@+id/logtxtLogin"
         android:layout_width="match_parent"
         android:layout_height="35dp"
-        android:layout_below="@id/etLogin"
+        android:layout_below="@id/logtxtLogin"
         android:layout_marginBottom="10dp"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
@@ -37,10 +37,10 @@
         android:textColor="#000" />
 
     <EditText
-        android:id="@+id/txtEmail"
+        android:id="@+id/logPassword"
         android:layout_width="match_parent"
         android:layout_height="35dp"
-        android:layout_below="@id/etLogin"
+        android:layout_below="@id/logtxtLogin"
         android:layout_marginBottom="10dp"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
@@ -52,7 +52,7 @@
         android:textColor="#000" />
 
     <Button
-        android:id="@+id/btnSignIn"
+        android:id="@+id/logbtnSignIn"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_marginLeft="20dp"
@@ -63,7 +63,7 @@
         android:textSize="20sp" />
 
     <Button
-        android:id="@+id/btnSignUp"
+        android:id="@+id/logbtnSignUp"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_marginLeft="20dp"
