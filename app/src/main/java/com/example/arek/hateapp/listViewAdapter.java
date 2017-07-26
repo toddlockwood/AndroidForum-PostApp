@@ -9,15 +9,13 @@ import android.widget.TextView;
 
 import java.util.ArrayList;
 
-import static java.security.AccessController.getContext;
-
 /**
  * Created by Arek on 13.07.2017.
  */
 
-public class listViewAdapter extends ArrayAdapter<mPost> {
+public class ListViewAdapter extends ArrayAdapter<MPost> {
 
-    private ArrayList<mPost> dataSet;
+    private ArrayList<MPost> dataSet;
     Context mContext;
 
     // View lookup cache
@@ -27,17 +25,17 @@ public class listViewAdapter extends ArrayAdapter<mPost> {
 
     }
 
-    public listViewAdapter(ArrayList<mPost> data, Context context) {
+    public ListViewAdapter(ArrayList<MPost> data, Context context) {
         super(context, R.layout.adapter_list_view, data);
         this.dataSet = data;
-        this.mContext=context;
+        this.mContext = context;
 
     }
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
 
-        mPost dataModel = getItem(position);
+        MPost dataModel = getItem(position);
         // Check if an existing view is being reused, otherwise inflate the view
         ViewHolder viewHolder; // view lookup cache stored in tag
 
@@ -52,12 +50,12 @@ public class listViewAdapter extends ArrayAdapter<mPost> {
             viewHolder.txtPost = (TextView) convertView.findViewById(R.id.adapter_txtPost);
 
 
-            result=convertView;
+            result = convertView;
 
             convertView.setTag(viewHolder);
         } else {
             viewHolder = (ViewHolder) convertView.getTag();
-            result=convertView;
+            result = convertView;
         }
         viewHolder.txtLogin.setText(dataModel.getLogin());
         viewHolder.txtPost.setText(dataModel.getPost());

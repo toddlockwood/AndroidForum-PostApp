@@ -4,12 +4,12 @@ package com.example.arek.hateapp;
  * Created by Arek on 13.07.2017.
  */
 
-public class mPost {
+public class MPost {
 
     private  String login;
     private  String post;
 
-    public mPost(String login, String post) {
+    public MPost(String login, String post) {
         this.login=login;
         this.post=post;
 
