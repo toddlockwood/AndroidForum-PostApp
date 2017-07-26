@@ -21,10 +21,10 @@
         <activity android:name=".RegisterActivity" />
         <activity android:name=".PostActivity" />
         <activity
-            android:name=".addMessage"
+            android:name=".AddMessage"
             android:label="@string/title_activity_add_message"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".showMessages"></activity>
+        <activity android:name=".ShowMessages"></activity>
     </application>
 
 </manifest>

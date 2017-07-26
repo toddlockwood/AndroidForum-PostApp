@@ -14,14 +14,15 @@ public class RegisterRequest extends StringRequest {
     private final static String REGISTER_REQUEST_URL = "https://lamp.ii.us.edu.pl/~ii277258/Register.php";
     private Map<String, String> params;
 
-    public RegisterRequest(String login, String password, Response.Listener<String> listener){
+    public RegisterRequest(String login, String password, Response.Listener<String> listener) {
         super(Method.POST, REGISTER_REQUEST_URL, listener, null);
         params = new HashMap<>();
         params.put("login", login);
         params.put("password", password);
     }
+
     @Override
-    public Map<String,String> getParams(){
+    public Map<String, String> getParams() {
         return params;
     }
 

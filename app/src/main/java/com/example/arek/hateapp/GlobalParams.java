@@ -18,7 +18,6 @@ public class GlobalParams {
         GlobalParams.login = login;
     }
 
-
     public static int getUser_id() {
         return user_id;
     }
@@ -26,8 +25,6 @@ public class GlobalParams {
     public static void setUser_id(int user_id) {
         GlobalParams.user_id = user_id;
     }
-
-
 
 
 }

@@ -33,27 +33,25 @@ public class RegisterActivity extends AppCompatActivity {
                 final String login = logIn.getText().toString();
                 final String password = passWord.getText().toString();
 
-                Response.Listener<String> responseListener = new Response.Listener<String>(){
+                Response.Listener<String> responseListener = new Response.Listener<String>() {
 
                     @Override
                     public void onResponse(String response) {
-                        try{
+                        try {
                             JSONObject jsonResponse = new JSONObject(response);
                             boolean success = jsonResponse.getBoolean("success");
 
-                            if (success){
+                            if (success) {
                                 Intent intent = new Intent(RegisterActivity.this, LoginActivity.class);
                                 RegisterActivity.this.startActivity(intent);
-                            }
-                            else{
+                            } else {
                                 AlertDialog.Builder builder = new AlertDialog.Builder(RegisterActivity.this);
                                 builder.setMessage("Register Failed")
-                                        .setNegativeButton("Retry",null)
+                                        .setNegativeButton("Retry", null)
                                         .create()
                                         .show();
                             }
-                        }
-                        catch (JSONException e){
+                        } catch (JSONException e) {
                             e.printStackTrace();
                         }
                     }

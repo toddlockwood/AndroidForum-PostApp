@@ -27,10 +27,10 @@ public class LoginActivity extends AppCompatActivity {
         final Button signIn = (Button) findViewById(R.id.logbtnSignIn);
         final Button signUp = (Button) findViewById(R.id.logbtnSignUp);
 
-        signUp.setOnClickListener(new View.OnClickListener(){
+        signUp.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v){
-                Intent registerIntent = new Intent(LoginActivity.this , RegisterActivity.class);
+            public void onClick(View v) {
+                Intent registerIntent = new Intent(LoginActivity.this, RegisterActivity.class);
                 LoginActivity.this.startActivity(registerIntent);
             }
         });
@@ -45,29 +45,7 @@ public class LoginActivity extends AppCompatActivity {
                     @Override
                     public void onResponse(String response) {
                         try {
-                            JSONObject jsonResponse = new JSONObject(response);
-                            boolean success = jsonResponse.getBoolean("success");
-
-                            if (success) {
-                                int user_id = jsonResponse.getInt("user_id");
-                                GlobalParams.setUser_id(user_id);
-                                GlobalParams.setLogin(login);
-
-                                Intent intent = new Intent(LoginActivity.this, PostActivity.class);
-                             //   intent.putExtra("login", login);
-                                LoginActivity.this.startActivity(intent);
-
-
-
-
-
-                            } else {
-                                AlertDialog.Builder builder = new AlertDialog.Builder(LoginActivity.this);
-                                builder.setMessage("Login Failed")
-                                        .setNegativeButton("Retry", null)
-                                        .create()
-                                        .show();
-                            }
+                            processResponse(response, login);
 
                         } catch (JSONException e) {
                             e.printStackTrace();
@@ -80,6 +58,36 @@ public class LoginActivity extends AppCompatActivity {
                 queue.add(loginRequest);
             }
         });
+    }
+
+    private void processResponse(String response, String login) throws JSONException {
+        JSONObject jsonResponse = new JSONObject(response);
+        boolean success = jsonResponse.getBoolean("success");
+
+        if (success) {
+            int user_id = jsonResponse.getInt("user_id");
+            setParameters(user_id, login);
+
+            Intent intent = new Intent(LoginActivity.this, PostActivity.class);
+            LoginActivity.this.startActivity(intent);
+
+
+        } else {
+            showAlert();
+        }
+    }
+
+    private void showAlert() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(LoginActivity.this);
+        builder.setMessage("Login Failed")
+                .setNegativeButton("Retry", null)
+                .create()
+                .show();
+    }
+
+    private void setParameters(int user_id, String login) {
+        GlobalParams.setUser_id(user_id);
+        GlobalParams.setLogin(login);
     }
 }
 

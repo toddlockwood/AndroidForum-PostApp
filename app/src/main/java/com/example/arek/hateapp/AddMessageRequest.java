@@ -10,19 +10,20 @@ import java.util.Map;
  * Created by Arek on 04.07.2017.
  */
 
-public class PostRequest extends StringRequest {
+public class AddMessageRequest extends StringRequest {
     private final static String POST_REQUEST_URL = "https://lamp.ii.us.edu.pl/~ii277258/SendPost.php";
     private Map<String, String> params;
 
 
-    public PostRequest(String user_id, String post, Response.Listener<String> listener){
+    public AddMessageRequest(String user_id, String post, Response.Listener<String> listener) {
         super(Method.POST, POST_REQUEST_URL, listener, null);
         params = new HashMap<>();
         params.put("user_id", user_id);
         params.put("post", post);
     }
+
     @Override
-    public Map<String,String> getParams(){
+    public Map<String, String> getParams() {
         return params;
     }
 

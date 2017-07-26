@@ -29,14 +29,14 @@ public class PostActivity extends AppCompatActivity {
         addMessage.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
-                Intent registerIntent = new Intent(PostActivity.this , addMessage.class);
+                Intent registerIntent = new Intent(PostActivity.this , AddMessage.class);
                 PostActivity.this.startActivity(registerIntent);
             }
         });
         showMessagges.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
-                Intent registerIntent = new Intent(PostActivity.this , showMessages.class);
+                Intent registerIntent = new Intent(PostActivity.this , ShowMessages.class);
                 PostActivity.this.startActivity(registerIntent);
             }
         });
