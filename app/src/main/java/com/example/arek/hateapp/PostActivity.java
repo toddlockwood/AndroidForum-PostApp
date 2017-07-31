@@ -21,7 +21,7 @@ public class PostActivity extends AppCompatActivity {
 
         String name = GlobalParams.getLogin();
 
-        String message = name + " welcome to HATE APP \n tell us what do you hate most!";
+        String message = name + " welcome to ForumPostApp \n tell us what do you hate most!";
         helloText.setText(message);
 
 
